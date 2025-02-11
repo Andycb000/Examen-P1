@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ExamenService } from '../examen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,15 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  quote: any = [];
 
-  constructor() {}
+  constructor(private examenService: ExamenService, private router: Router) { }
+
+  ngOnInit() {
+    this.examenService.getQuote().subscribe((data) => {
+      this.quote = data;
+    });
+
+  }
 
 }

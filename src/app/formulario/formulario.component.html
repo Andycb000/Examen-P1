@@ -1,0 +1,35 @@
+<h1 style="text-align: center; font-family: 'Courier New', Courier, monospace; color: indigo; font-size: 80 px;">
+  Registro de películas
+</h1>
+<div id="container">
+  Nombre del película <input #nameInput type="text" placeholder="Nombre" /> <br> <br>
+  Año de lanzamiento <input #dateInput type="date" /> <br> <br>
+  Nombre del productor <input #productorInput type="text" placeholder="Productor" /> <br> <br>
+  Casa productora <input #studioInput type="text" placeholder="Casa productora" /> <br> <br>
+  Protagonista <input #mainCharacterInput type="text" placeholder="Protagonista" /> <br> <br>
+  <button
+    (click)="addItem(nameInput.value, dateInput.value, productorInput.value, studioInput.value, mainCharacterInput.value); 
+             nameInput.value=''; dateInput.value=''; productorInput.value=''; studioInput.value=''; mainCharacterInput.value=''">Agregar</button>
+</div>
+
+<table border="1" style="margin-top: 20px; width: 100%; text-align: left; margin-right: 100px;">
+  <thead>
+    <tr>
+      <th>Película</th>
+      <th>Fecha de lanzamiento</th>
+      <th>Ubicacion</th>
+      <th>Nombre del productor</th>
+      <th>Casa productora</th>
+      <th>Protagonista</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.name }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.productor }}</td>
+      <td>{{ item.studio }}</td>
+      <td>{{ item.mainCharacter }}</td>
+    </tr>
+  </tbody>
+</table>
